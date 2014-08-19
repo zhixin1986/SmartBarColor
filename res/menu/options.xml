@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ashqal.smartbar.MainActivity" >
+    <item android:id="@+id/action_noChange"
+        android:title="@string/NoChange"
+        />
+    <item android:id="@+id/action_copy"
+        android:title="@string/Copy"
+        />
+    <item android:id="@+id/action_white"
+        android:title="@string/White"
+        />
+    <item android:id="@+id/action_gray"
+                     android:title="@string/Gray"
+        />
+    <!--<item android:id="@+id/action_intell"
+          android:title="@string/Intell"
+     />-->
+</menu>

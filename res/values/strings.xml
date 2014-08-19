@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Smart颜色</string>
+    <string name="app_title">Smart颜色</string>
+    <string name="app_des">SmartBar颜色配置</string>
+    <string name="NoChange">不改变颜色</string>
+    <string name="Copy">和顶栏一致</string>
+    <string name="White">白色SmartBar</string>
+    <string name="Gray">灰色SmartBar</string>
+    <string name="Intell">智能获取</string>
+    <string name="delete">删除全部配置</string>
+    <string name="allNoChange">默认系统颜色</string>
+    <string name="allCopy">默认顶栏一致</string>
+    <string name="allWhite">全部显示白色</string>
+    <string name="allGray">全部显示灰色</string>
+    <string name="showSystemApp">显示系统应用</string>
+    <string name="noShowSystemApp">去除系统应用</string>
+</resources>
