@@ -49,7 +49,7 @@ public class MainActivity extends ListActivity implements PopupMenu.OnMenuItemCl
         configManager.load();
         isDeleteSystemApp = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("isDeleteSystemApp", true);
         loadData(isDeleteSystemApp);
-        String pageName = this.getPackageName();
+        ActionBar actionBar=this.getActionBar();
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

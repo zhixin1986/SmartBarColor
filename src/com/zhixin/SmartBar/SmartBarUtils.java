@@ -20,6 +20,7 @@ import com.zhixin.SmartBar.BgColor.SingleColorMode;
 import com.zhixin.SmartBar.BgColor.SmartFactory;
 import com.zhixin.SmartBar.BgColor.SmartOptions;
 import de.robv.android.xposed.XposedBridge;
+import de.robv.android.xposed.XposedHelpers;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -38,16 +39,35 @@ public class SmartBarUtils {
         String log="";
         if (configManager.exist(packageName+".color")){
             int color=configManager.getColor(packageName + ".color", 0);
-            SmartBarUtils.changeSmartBarColor(thisActivity, color);
+            return SmartBarUtils.changeSmartBarColor(thisActivity, color);
         }else
         {
             int def=configManager.getInt(ConfigManager.DEF_MODE_NAME,0);
             int mode= configManager.getInt(thisActivity.getPackageName(),def);
             if(mode>0){
-                SmartBarUtils.changeSmartBarColor(thisActivity, SmartFactory.getModeByValue(mode));
+                return  SmartBarUtils.changeSmartBarColor(thisActivity, SmartFactory.getModeByValue(mode));
             }
         }
         return  false;
+    }
+    public static void changeSmartBarIcon(Activity activity, ViewGroup mzSmartBar) {
+        if(mzSmartBar!=null){
+            int count=mzSmartBar.getChildCount();
+            for(int i=0;i<count;i++){
+                View view=mzSmartBar.getChildAt(i);
+                if (view instanceof ViewGroup){
+                    changeSmartBarIcon(activity,(ViewGroup)view);
+                }else
+                {
+                    String className=view.getClass().getName();
+                    if(className.equals("com.meizu.widget.KeyBackButton"))
+                        break;
+                    if(className.equals("com.android.internal.view.menu.ActionMenuPresenter$OverflowMenuButton"))
+                        break;
+                    XposedBridge.log(activity.getPackageName()+":"+className);
+                }
+            }
+        }
     }
     public static boolean changeSmartBarColor(Activity activity, int color) {
         ActionBar actionBar = activity.getActionBar();
